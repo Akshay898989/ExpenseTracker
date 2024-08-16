@@ -21,6 +21,7 @@ class DashboardExpenseRepository:ExpenseRepository{
     func addExpense(amount: Double, category: String, date: Date, note: String?) {
         let expense = Expense(context: Expense.viewContext)
         expense.id = UUID()
+        expense.createdAt = Date()
         expense.amount = amount
         expense.category = category
         expense.date = date

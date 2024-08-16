@@ -37,9 +37,9 @@ class DashboardExpenseUseCase {
 //    func addExpense(amount: Double, category: String, date: Date, note: String?){
     func addExpense(){
         //repository.addExpense(amount: amount, category: category, date: date, note: note)
-        let twoMonthsBackDate = Calendar.current.date(byAdding: .month, value: -30, to: Date())!
-        repository.addExpense(amount: 200, category: "Sports", date: twoMonthsBackDate, note: "trVELLED IN BUS")
-        repository.addExpense(amount: 60, category: "Party", date: twoMonthsBackDate, note: "food in club")
+        let twoMonthsBackDate = Calendar.current.date(byAdding: .month, value: 0, to: Date())!
+        repository.addExpense(amount: 400, category: "Food22", date: twoMonthsBackDate, note: "spent on food")
+        //repository.addExpense(amount: 4000, category: "Sports", date: twoMonthsBackDate, note: "")
     }
     
     
@@ -72,6 +72,20 @@ class DashboardExpenseUseCase {
         let categoryDict = Dictionary(grouping: expenses, by: { $0.category })
         let categoryExpenses = categoryDict.map { CategoryExpense(category: $0.key, amount: $0.value.reduce(0) { $0 + $1.amount }) }
         return categoryExpenses
+    }
+    
+    func getRecentTransactions() -> [TotalExpense] {
+        // Sort expenses by date in descending order and return the latest 3
+        let sortedExpenses = expenses.sorted(by: { $0.createdAt > $1.createdAt })
+        let latestTransactions = sortedExpenses.map { expense in
+            TotalExpense(
+                label: expense.category,
+                amount: expense.amount,
+                notes: expense.note,
+                date: expense.date
+            )
+        }
+        return latestTransactions
     }
     
 }

@@ -22,6 +22,9 @@ struct ExpenseData{
     var date:Date{
         return expense.date!
     }
+    var createdAt:Date{
+        return expense.createdAt!
+    }
     var note:String?{
         return expense.note
     }

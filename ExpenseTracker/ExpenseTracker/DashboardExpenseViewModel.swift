@@ -12,11 +12,12 @@ class DashboardExpenseViewModel:ObservableObject{
     @Published var totalExpense:[TotalExpense] = []
     @Published var categoryExpense:[CategoryExpense] = [CategoryExpense]()
     @Published var selectedInterval: Interval = .monthly
+    @Published var recentTransactions: [TotalExpense] = []
     private let dashboardExpenseUseCase: DashboardExpenseUseCase
     
     init(dashboardExpenseUseCase: DashboardExpenseUseCase) {
         self.dashboardExpenseUseCase = dashboardExpenseUseCase
-        //addExpense()
+       // addExpense()
         loadData()
     }
     
@@ -33,9 +34,13 @@ class DashboardExpenseViewModel:ObservableObject{
     }
     func getCategoryExpense(){
         categoryExpense = dashboardExpenseUseCase.getCategoryExpense()
+        print("cccc===",categoryExpense)
     }
     func updateInterval(_ interval: Interval) {
         selectedInterval = interval
         getTotalExpense()
+    }
+    func getRecentTransactions(){
+        recentTransactions = dashboardExpenseUseCase.getRecentTransactions()
     }
 }

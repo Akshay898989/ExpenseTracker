@@ -28,6 +28,8 @@
 		F66748262C6FA2B6004108F9 /* ExpenseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748252C6FA2B6004108F9 /* ExpenseData.swift */; };
 		F66748282C6FA2CC004108F9 /* TotalExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748272C6FA2CC004108F9 /* TotalExpense.swift */; };
 		F667482A2C6FA2DE004108F9 /* CategoryExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748292C6FA2DE004108F9 /* CategoryExpense.swift */; };
+		F667482C2C6FB499004108F9 /* RecentTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667482B2C6FB499004108F9 /* RecentTransactionsView.swift */; };
+		F667482E2C6FD1C5004108F9 /* AllTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667482D2C6FD1C5004108F9 /* AllTransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		F66748252C6FA2B6004108F9 /* ExpenseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseData.swift; sourceTree = "<group>"; };
 		F66748272C6FA2CC004108F9 /* TotalExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpense.swift; sourceTree = "<group>"; };
 		F66748292C6FA2DE004108F9 /* CategoryExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpense.swift; sourceTree = "<group>"; };
+		F667482B2C6FB499004108F9 /* RecentTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsView.swift; sourceTree = "<group>"; };
+		F667482D2C6FD1C5004108F9 /* AllTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				F66748052C6E3100004108F9 /* Dashboard.swift */,
+				F667482B2C6FB499004108F9 /* RecentTransactionsView.swift */,
+				F667482D2C6FD1C5004108F9 /* AllTransactionView.swift */,
 				F667481F2C6FA1C6004108F9 /* Charts */,
 			);
 			path = Screens;
@@ -350,12 +356,14 @@
 				F667482A2C6FA2DE004108F9 /* CategoryExpense.swift in Sources */,
 				F66748282C6FA2CC004108F9 /* TotalExpense.swift in Sources */,
 				F66748062C6E3100004108F9 /* Dashboard.swift in Sources */,
+				F667482E2C6FD1C5004108F9 /* AllTransactionView.swift in Sources */,
 				F66748172C6E3F3F004108F9 /* DashboardExpenseViewModel.swift in Sources */,
 				F66748232C6FA201004108F9 /* CategoryExpenseView.swift in Sources */,
 				F66748092C6E318B004108F9 /* CoreDataManager.swift in Sources */,
 				F66748152C6E3EF5004108F9 /* DashboardExpenseUseCase.swift in Sources */,
 				F667480D2C6E3283004108F9 /* ExpenseTracker.xcdatamodeld in Sources */,
 				F66747942C6CAAC8004108F9 /* ExpenseTrackerApp.swift in Sources */,
+				F667482C2C6FB499004108F9 /* RecentTransactionsView.swift in Sources */,
 				F66748112C6E3A59004108F9 /* DashboardExpenseRepository.swift in Sources */,
 				F66748212C6FA1DA004108F9 /* TotalExpenseView.swift in Sources */,
 				F66748262C6FA2B6004108F9 /* ExpenseData.swift in Sources */,

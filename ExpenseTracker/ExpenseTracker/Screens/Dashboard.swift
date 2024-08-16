@@ -15,16 +15,24 @@ struct Dashboard: View {
     }
     
     var body: some View {
+        NavigationView {
         ScrollView {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Expense Tracker")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.leading)
-                .padding(.top,10)
-            TotalExpenseView(selectedInterval: $viewModel.selectedInterval, totalExpense: viewModel.totalExpense) { newInterval in
-                viewModel.updateInterval(newInterval)
+            VStack(alignment: .leading, spacing: 0) {
+                TotalExpenseView(selectedInterval: $viewModel.selectedInterval, totalExpense: viewModel.totalExpense) { newInterval in
+                    viewModel.updateInterval(newInterval)
+                }
+                
+                CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
+                RecentTransactionsView(transactions: viewModel.recentTransactions)
+                    .padding(10)
             }
+            .navigationTitle("Expense Tracker")
+            .onAppear {
+                viewModel.getTotalExpense()
+                viewModel.getCategoryExpense()
+                viewModel.getRecentTransactions()
+            }
+        }
             
             CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
         }
