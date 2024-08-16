@@ -6,13 +6,39 @@
 //
 
 import SwiftUI
+import Charts
 
 struct Dashboard: View {
+    @StateObject private var viewModel:DashboardExpenseViewModel
+    init(viewModel: DashboardExpenseViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Expense Tracker")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .padding(.leading)
+                .padding(.top,10)
+            TotalExpenseView(selectedInterval: $viewModel.selectedInterval, totalExpense: viewModel.totalExpense) { newInterval in
+                viewModel.updateInterval(newInterval)
+            }
+            
+            CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
+        }
+        .onAppear {
+            viewModel.getTotalExpense()
+            viewModel.getCategoryExpense()
+        }
+    }
     }
 }
 
-#Preview {
-    Dashboard()
+struct Dashboard_Previews: PreviewProvider {
+    static var previews: some View {
+        Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: DashboardExpenseUseCase(repository: DashboardExpenseRepository())))
+    }
 }
+

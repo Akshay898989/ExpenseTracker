@@ -18,6 +18,16 @@
 		F66748092C6E318B004108F9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748082C6E318B004108F9 /* CoreDataManager.swift */; };
 		F667480D2C6E3283004108F9 /* ExpenseTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F667480B2C6E3282004108F9 /* ExpenseTracker.xcdatamodeld */; };
 		F667480F2C6E336D004108F9 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667480E2C6E336D004108F9 /* BaseModel.swift */; };
+		F66748112C6E3A59004108F9 /* DashboardExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748102C6E3A59004108F9 /* DashboardExpenseRepository.swift */; };
+		F66748132C6E3E62004108F9 /* Expense+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748122C6E3E62004108F9 /* Expense+Extension.swift */; };
+		F66748152C6E3EF5004108F9 /* DashboardExpenseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748142C6E3EF5004108F9 /* DashboardExpenseUseCase.swift */; };
+		F66748172C6E3F3F004108F9 /* DashboardExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748162C6E3F3F004108F9 /* DashboardExpenseViewModel.swift */; };
+		F667481E2C6E70C6004108F9 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = F667481D2C6E70C6004108F9 /* SwiftUICharts */; };
+		F66748212C6FA1DA004108F9 /* TotalExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748202C6FA1DA004108F9 /* TotalExpenseView.swift */; };
+		F66748232C6FA201004108F9 /* CategoryExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748222C6FA201004108F9 /* CategoryExpenseView.swift */; };
+		F66748262C6FA2B6004108F9 /* ExpenseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748252C6FA2B6004108F9 /* ExpenseData.swift */; };
+		F66748282C6FA2CC004108F9 /* TotalExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748272C6FA2CC004108F9 /* TotalExpense.swift */; };
+		F667482A2C6FA2DE004108F9 /* CategoryExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748292C6FA2DE004108F9 /* CategoryExpense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +62,15 @@
 		F66748082C6E318B004108F9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F667480C2C6E3283004108F9 /* ExpenseTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseTracker.xcdatamodel; sourceTree = "<group>"; };
 		F667480E2C6E336D004108F9 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		F66748102C6E3A59004108F9 /* DashboardExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseRepository.swift; sourceTree = "<group>"; };
+		F66748122C6E3E62004108F9 /* Expense+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+Extension.swift"; sourceTree = "<group>"; };
+		F66748142C6E3EF5004108F9 /* DashboardExpenseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseUseCase.swift; sourceTree = "<group>"; };
+		F66748162C6E3F3F004108F9 /* DashboardExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardExpenseViewModel.swift; sourceTree = "<group>"; };
+		F66748202C6FA1DA004108F9 /* TotalExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpenseView.swift; sourceTree = "<group>"; };
+		F66748222C6FA201004108F9 /* CategoryExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpenseView.swift; sourceTree = "<group>"; };
+		F66748252C6FA2B6004108F9 /* ExpenseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseData.swift; sourceTree = "<group>"; };
+		F66748272C6FA2CC004108F9 /* TotalExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalExpense.swift; sourceTree = "<group>"; };
+		F66748292C6FA2DE004108F9 /* CategoryExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryExpense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F667481E2C6E70C6004108F9 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,11 +122,15 @@
 		F66747922C6CAAC8004108F9 /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				F66747932C6CAAC8004108F9 /* ExpenseTrackerApp.swift */,
 				F667480A2C6E325F004108F9 /* Model */,
 				F66748072C6E317B004108F9 /* Manager */,
+				F66748242C6FA27E004108F9 /* DataModels */,
 				F66748042C6E30EE004108F9 /* Screens */,
-				F66747932C6CAAC8004108F9 /* ExpenseTrackerApp.swift */,
 				F66747952C6CAAC8004108F9 /* ContentView.swift */,
+				F66748162C6E3F3F004108F9 /* DashboardExpenseViewModel.swift */,
+				F66748142C6E3EF5004108F9 /* DashboardExpenseUseCase.swift */,
+				F66748102C6E3A59004108F9 /* DashboardExpenseRepository.swift */,
 				F66747972C6CAACA004108F9 /* Assets.xcassets */,
 				F66747992C6CAACA004108F9 /* Preview Content */,
 				F667480B2C6E3282004108F9 /* ExpenseTracker.xcdatamodeld */,
@@ -143,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				F66748052C6E3100004108F9 /* Dashboard.swift */,
+				F667481F2C6FA1C6004108F9 /* Charts */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -151,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				F66748082C6E318B004108F9 /* CoreDataManager.swift */,
+				F66748122C6E3E62004108F9 /* Expense+Extension.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -161,6 +187,25 @@
 				F667480E2C6E336D004108F9 /* BaseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F667481F2C6FA1C6004108F9 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				F66748202C6FA1DA004108F9 /* TotalExpenseView.swift */,
+				F66748222C6FA201004108F9 /* CategoryExpenseView.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		F66748242C6FA27E004108F9 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				F66748252C6FA2B6004108F9 /* ExpenseData.swift */,
+				F66748272C6FA2CC004108F9 /* TotalExpense.swift */,
+				F66748292C6FA2DE004108F9 /* CategoryExpense.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +224,9 @@
 			dependencies = (
 			);
 			name = ExpenseTracker;
+			packageProductDependencies = (
+				F667481D2C6E70C6004108F9 /* SwiftUICharts */,
+			);
 			productName = ExpenseTracker;
 			productReference = F66747902C6CAAC8004108F9 /* ExpenseTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -251,6 +299,9 @@
 				Base,
 			);
 			mainGroup = F66747872C6CAAC8004108F9;
+			packageReferences = (
+				F667481C2C6E70C6004108F9 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = F66747912C6CAAC8004108F9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,10 +346,19 @@
 			files = (
 				F667480F2C6E336D004108F9 /* BaseModel.swift in Sources */,
 				F66747962C6CAAC8004108F9 /* ContentView.swift in Sources */,
+				F66748132C6E3E62004108F9 /* Expense+Extension.swift in Sources */,
+				F667482A2C6FA2DE004108F9 /* CategoryExpense.swift in Sources */,
+				F66748282C6FA2CC004108F9 /* TotalExpense.swift in Sources */,
 				F66748062C6E3100004108F9 /* Dashboard.swift in Sources */,
+				F66748172C6E3F3F004108F9 /* DashboardExpenseViewModel.swift in Sources */,
+				F66748232C6FA201004108F9 /* CategoryExpenseView.swift in Sources */,
 				F66748092C6E318B004108F9 /* CoreDataManager.swift in Sources */,
+				F66748152C6E3EF5004108F9 /* DashboardExpenseUseCase.swift in Sources */,
 				F667480D2C6E3283004108F9 /* ExpenseTracker.xcdatamodeld in Sources */,
 				F66747942C6CAAC8004108F9 /* ExpenseTrackerApp.swift in Sources */,
+				F66748112C6E3A59004108F9 /* DashboardExpenseRepository.swift in Sources */,
+				F66748212C6FA1DA004108F9 /* TotalExpenseView.swift in Sources */,
+				F66748262C6FA2B6004108F9 /* ExpenseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +682,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F667481C2C6E70C6004108F9 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F667481D2C6E70C6004108F9 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F667481C2C6E70C6004108F9 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F667480B2C6E3282004108F9 /* ExpenseTracker.xcdatamodeld */ = {
