@@ -66,10 +66,10 @@ class DashboardExpenseUseCase {
     }
     
     func getRecentTransactions() -> [TotalExpense] {
-        // Sort expenses by date in descending order and return the latest 3
         let sortedExpenses = expenses.sorted(by: { $0.createdAt > $1.createdAt })
         let latestTransactions = sortedExpenses.map { expense in
             TotalExpense(
+                id: expense.id,
                 label: expense.category,
                 amount: expense.amount,
                 notes: expense.note,

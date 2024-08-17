@@ -62,10 +62,10 @@ struct ExpensesOverTimeChart:View {
 struct ExpensesOverTimeView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleTransactions = [
-            TotalExpense(label: "Groceries", amount: 50.0, notes: "Milk and bread", date: Date().addingTimeInterval(-86400 * 3)),
-            TotalExpense(label: "Transport", amount: 20.0, notes: "Bus fare", date: Date().addingTimeInterval(-86400 * 2)),
-            TotalExpense(label: "Entertainment", amount: 100.0, notes: "Movie tickets", date: Date().addingTimeInterval(-86400 * 1)),
-            TotalExpense(label: "Dining", amount: 60.0, notes: "Dinner out", date: Date())
+            TotalExpense(id: UUID(),label: "Groceries", amount: 50.0, notes: "Milk and bread", date: Date().addingTimeInterval(-86400 * 3)),
+            TotalExpense(id: UUID(),label: "Transport", amount: 20.0, notes: "Bus fare", date: Date().addingTimeInterval(-86400 * 2)),
+            TotalExpense(id: UUID(),label: "Entertainment", amount: 100.0, notes: "Movie tickets", date: Date().addingTimeInterval(-86400 * 1)),
+            TotalExpense(id: UUID(),label: "Dining", amount: 60.0, notes: "Dinner out", date: Date())
         ]
         
         ExpensesOverTimeView(expensesOverTime: sampleTransactions)

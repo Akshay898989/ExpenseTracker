@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct RecentTransactionsView: View {
-    let transactions: [TotalExpense]
-    
+    @EnvironmentObject var viewModel: DashboardExpenseViewModel
     var body: some View {
-        //NavigationView {
         VStack(alignment:.leading){
             HStack {
                 Text("Recent Transactions")
                     .font(.headline)
                 Spacer()
-                NavigationLink(destination: AllTransactionsView(transactions: transactions)) {
+                NavigationLink(destination: AllTransactionsView()
+                    .environmentObject(viewModel)
+                ) {
                     Text("See All")
                         .font(.subheadline)
                         .foregroundColor(.blue)
@@ -26,7 +26,7 @@ struct RecentTransactionsView: View {
             }
             .padding(10)
             
-            ForEach(transactions.prefix(3)) {transaction in
+            ForEach(viewModel.recentTransactions.prefix(3)) {transaction in
                 TransactionRow(transaction: transaction)
                 Divider()
             }
@@ -36,7 +36,6 @@ struct RecentTransactionsView: View {
         .background(Color.white)
         .cornerRadius(10)
         .shadow(radius: 5)
-    //}
     }
 }
 
@@ -54,7 +53,7 @@ struct TransactionRow: View {
                         .foregroundColor(.gray)
                 }
                 if let date = transaction.date {
-                    Text(transaction.formattedDate) // Formatted date
+                    Text(transaction.formattedDate)
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
@@ -70,14 +69,14 @@ struct TransactionRow: View {
 }
 
 
-struct RecentTransactionsView_Previews: PreviewProvider {
-    static var previews: some View {
-        let sampleTransactions = [
-            TotalExpense(label: "Groceries", amount: 50.0, notes: "Milk and bread", date: Date()),
-            TotalExpense(label: "Transport", amount: 20.0, notes: "Bus fare", date: Date()),
-            TotalExpense(label: "Entertainment", amount: 100.0, notes: "Movie tickets", date: Date())
-        ]
-        
-        RecentTransactionsView(transactions: sampleTransactions)
-    }
-}
+//struct RecentTransactionsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let sampleTransactions = [
+//            TotalExpense(id: UUID(), label: "Groceries", amount: 50.0, notes: "Milk and bread", date: Date()),
+//            TotalExpense(id: UUID(),label: "Transport", amount: 20.0, notes: "Bus fare", date: Date()),
+//            TotalExpense(id: UUID(),label: "Entertainment", amount: 100.0, notes: "Movie tickets", date: Date())
+//        ]
+//        
+//        RecentTransactionsView(transactions: sampleTransactions)
+//    }
+//}

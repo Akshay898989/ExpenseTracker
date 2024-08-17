@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
 protocol AddExpenseRepository{
     func save(amount: Double, category: String, date: Date, note: String?,completion:@escaping(Bool)->Void)
+    func update(expenseId: UUID, amount: Double, category: String, date: Date, note: String?, completion: @escaping (Bool) -> Void)
 }
 
 class AddExpenseRepositoryImpl:AddExpenseRepository{
@@ -29,6 +29,25 @@ class AddExpenseRepositoryImpl:AddExpenseRepository{
             }
         }
     }
+    
+    func update(expenseId: UUID, amount: Double, category: String, date: Date, note: String?, completion: @escaping (Bool) -> Void) {
+        
+        if let expense:Expense = Expense.byUUID(uuid: expenseId){
+            expense.amount = amount
+            expense.category = category
+            expense.date = date
+            expense.note = note
+            expense.save { result in
+                switch result{
+                case .success(_):
+                    completion(true)
+                case .failure:
+                    completion(false)
+                }
+            }
+        }
+    }
+
     
     
 }

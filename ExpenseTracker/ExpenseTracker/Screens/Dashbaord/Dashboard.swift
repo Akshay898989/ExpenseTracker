@@ -10,7 +10,7 @@ import Charts
 
 struct Dashboard: View {
     @StateObject private var viewModel:DashboardExpenseViewModel
-    @EnvironmentObject private var addExpenseViewModel: AddExpenseViewModel
+    //@EnvironmentObject private var addExpenseViewModel: AddExpenseViewModel
     @State private var didSaveExpense = false
     init(viewModel: DashboardExpenseViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -27,7 +27,8 @@ struct Dashboard: View {
                         
                         CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
                         ExpensesOverTimeView(expensesOverTime: viewModel.recentTransactions)
-                        RecentTransactionsView(transactions: viewModel.recentTransactions)
+                        RecentTransactionsView()
+                            .environmentObject(viewModel)
                             .padding(10)
                     }
                     .navigationTitle("Expense Tracker")

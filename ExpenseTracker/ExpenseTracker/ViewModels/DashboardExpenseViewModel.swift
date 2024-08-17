@@ -17,7 +17,6 @@ class DashboardExpenseViewModel:ObservableObject{
     
     init(dashboardExpenseUseCase: DashboardExpenseUseCase) {
         self.dashboardExpenseUseCase = dashboardExpenseUseCase
-        //loadData()
     }
     
     func loadData() {

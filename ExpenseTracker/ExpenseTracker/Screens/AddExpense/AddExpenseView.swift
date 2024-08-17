@@ -7,17 +7,12 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct AddExpenseView: View {
     @EnvironmentObject var viewModel: AddExpenseViewModel
     @Environment(\.presentationMode) private var presentationMode
     @State private var showAlert = false
     @Binding var didSaveExpense: Bool
-//    init(viewModel: AddExpenseViewModel) {
-//        _viewModel = StateObject(wrappedValue: viewModel)
-//    }
-    
+    var expenseToEdit: TotalExpense?
     var categories = ["Food", "Transport", "Utilities", "Entertainment", "Others"]
     
     var body: some View {
@@ -36,10 +31,18 @@ struct AddExpenseView: View {
                     }
                 }
                 .onAppear {
-                    viewModel.reset()
-                    // Pre-select the first category if not set
-                    if viewModel.category.isEmpty {
-                        viewModel.category = categories.first ?? ""
+                    if let expense = expenseToEdit {
+                        viewModel.amount = "\(expense.amount)"
+                        viewModel.category = expense.label
+                        viewModel.date = expense.date!
+                        viewModel.note = expense.notes ?? ""
+                        viewModel.isSaveButtonEnabled = true
+                    }else{
+                        viewModel.reset()
+                        // Pre-select the first category if not set
+                        if viewModel.category.isEmpty {
+                            viewModel.category = categories.first ?? ""
+                        }
                     }
                     
                 }
@@ -56,13 +59,21 @@ struct AddExpenseView: View {
                             HStack {
                     Spacer()
                     Button(action: {
-                        viewModel.addExpense { success in
-                            if success {
-                                showAlert = true
+                        if expenseToEdit == nil{
+                            viewModel.addExpense { success in
+                                if success {
+                                    showAlert = true
+                                }
+                            }
+                        }else{
+                            viewModel.update(expenseId: expenseToEdit!.id!) { success in
+                                if success {
+                                    showAlert = true
+                                }
                             }
                         }
                     }) {
-                        Text("Save")
+                        Text(expenseToEdit == nil ? "Save" : "Update")
                             .padding([.top, .bottom], 10)
                             .padding([.leading, .trailing], 40)
                             .background(.blue)
@@ -80,7 +91,7 @@ struct AddExpenseView: View {
             .alert(isPresented: $showAlert, content: {
                 Alert(
                     title: Text("Success"),
-                    message: Text("Expense saved successfully."),
+                    message: Text(expenseToEdit == nil ? "Expense saved successfully." : "Expense updated successfully."),
                     dismissButton: .default(Text("OK"), action: {
                         didSaveExpense = true
                         presentationMode.wrappedValue.dismiss()
@@ -88,13 +99,6 @@ struct AddExpenseView: View {
                 )
             })
         }
-        .navigationTitle("Add Expense")
+        .navigationTitle(expenseToEdit == nil ? "Add Expense" : "Edit Expense")
     }
 }
-
-//struct AddExpenseView_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//        AddExpenseView(viewModel: AddExpenseViewModel(addExpenseUseCase: AddExpenseUseCase(repository: AddExpenseRepositoryImpl())))
-//    }
-//}

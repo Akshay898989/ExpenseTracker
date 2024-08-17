@@ -14,6 +14,7 @@ class AddExpenseViewModel:ObservableObject{
     @Published var date = Date()
     @Published var note: String = ""
     @Published var isSaveButtonEnabled: Bool = false
+    //@Published var expenseId:UUID = UUID()
     private var cancellables = Set<AnyCancellable>()
     private let addExpenseUseCase: AddExpenseUseCase
     init(addExpenseUseCase:AddExpenseUseCase){
@@ -32,6 +33,12 @@ class AddExpenseViewModel:ObservableObject{
     
     func addExpense(completion:@escaping(Bool)->Void){
         addExpenseUseCase.addExpense(amount: Double(amount)!, category: category, date: date, note: note){result in
+            completion(result)
+        }
+    }
+    
+    func update(expenseId:UUID,completion:@escaping(Bool)->Void){
+        addExpenseUseCase.updateExpense(expenseId:expenseId,amount: Double(amount)!, category: category, date: date, note: note){result in
             completion(result)
         }
     }

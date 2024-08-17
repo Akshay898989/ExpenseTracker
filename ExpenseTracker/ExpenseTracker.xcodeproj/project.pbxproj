@@ -22,7 +22,6 @@
 		F66748132C6E3E62004108F9 /* Expense+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748122C6E3E62004108F9 /* Expense+Extension.swift */; };
 		F66748152C6E3EF5004108F9 /* DashboardExpenseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748142C6E3EF5004108F9 /* DashboardExpenseUseCase.swift */; };
 		F66748172C6E3F3F004108F9 /* DashboardExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748162C6E3F3F004108F9 /* DashboardExpenseViewModel.swift */; };
-		F667481E2C6E70C6004108F9 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = F667481D2C6E70C6004108F9 /* SwiftUICharts */; };
 		F66748212C6FA1DA004108F9 /* TotalExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748202C6FA1DA004108F9 /* TotalExpenseView.swift */; };
 		F66748232C6FA201004108F9 /* CategoryExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748222C6FA201004108F9 /* CategoryExpenseView.swift */; };
 		F66748262C6FA2B6004108F9 /* ExpenseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748252C6FA2B6004108F9 /* ExpenseData.swift */; };
@@ -92,7 +91,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F667481E2C6E70C6004108F9 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +292,6 @@
 			);
 			name = ExpenseTracker;
 			packageProductDependencies = (
-				F667481D2C6E70C6004108F9 /* SwiftUICharts */,
 			);
 			productName = ExpenseTracker;
 			productReference = F66747902C6CAAC8004108F9 /* ExpenseTracker.app */;
@@ -769,14 +766,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F667481D2C6E70C6004108F9 /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F667481C2C6E70C6004108F9 /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		F667480B2C6E3282004108F9 /* ExpenseTracker.xcdatamodeld */ = {

@@ -18,7 +18,7 @@ import Foundation
 import Foundation
 
 struct TotalExpense: Identifiable {
-    var id = UUID()
+    var id:UUID?
     let label: String
     let amount: Double
     let notes: String?
@@ -32,7 +32,7 @@ struct TotalExpense: Identifiable {
         return dateFormatter.string(from: date)
     }
     
-    init(id: UUID = UUID(), label: String, amount: Double,notes:String? = nil,date:Date? = nil) {
+    init(id: UUID? = nil, label: String, amount: Double,notes:String? = nil,date:Date? = nil) {
         self.id = id
         self.label = label
         self.amount = amount

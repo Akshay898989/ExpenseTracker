@@ -19,4 +19,9 @@ class AddExpenseUseCase{
             completion(result)
         }
     }
+    func updateExpense(expenseId:UUID,amount: Double, category: String, date: Date, note: String?,completion:@escaping(Bool)->Void){
+        repository.update(expenseId:expenseId,amount: amount, category: category, date: date, note: note){result in
+            completion(result)
+        }
+    }
 }
