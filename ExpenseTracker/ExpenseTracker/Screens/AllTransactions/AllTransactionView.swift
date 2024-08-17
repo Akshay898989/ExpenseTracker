@@ -7,21 +7,47 @@
 
 import SwiftUI
 
+enum Sheets: Identifiable {
+    
+    var id: UUID {
+        return UUID()
+    }
+    
+    case showFilters
+}
+
 struct AllTransactionsView: View {
     @EnvironmentObject var viewModel: DashboardExpenseViewModel
     @State private var didUpdateExpense = false
+    @State private var showFilter:Sheets?
     var body: some View {
-        List(viewModel.recentTransactions) { transaction in
-                NavigationLink(destination:AddExpenseView(didSaveExpense: $didUpdateExpense, expenseToEdit: transaction)){
-                    AllTransactionRow(transaction: transaction)
-                }
-                .onChange(of: didUpdateExpense) { oldValue, newValue in
-                    viewModel.getRecentTransactions()
-                    didUpdateExpense = false
-                }
-                
+        List(viewModel.filteredTransactions) { transaction in
+            NavigationLink(destination:AddExpenseView(didSaveExpense: $didUpdateExpense, expenseToEdit: transaction)){
+                AllTransactionRow(transaction: transaction)
             }
-            .navigationTitle("All Transactions")
+            .onChange(of: didUpdateExpense) { oldValue, newValue in
+                viewModel.getRecentTransactions()
+                didUpdateExpense = false
+            }
+            
+        }
+        .onAppear(){
+            viewModel.getFilterTransactions(byStartDate: nil, endDate: nil)
+        }
+        .navigationTitle("All Transactions")
+        .toolbar{
+            Button("Filter"){
+                showFilter = .showFilters
+            }
+        }
+        .sheet(item: $showFilter, onDismiss: {
+        }, content: { item in
+            switch item {
+                case .showFilters:
+                ShowFilterScreen()
+
+            }
+        })
     }
 }
 

@@ -34,6 +34,7 @@
 		F667483A2C709540004108F9 /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748392C709540004108F9 /* AddExpenseViewModel.swift */; };
 		F667483C2C70998E004108F9 /* AddExpenseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667483B2C70998E004108F9 /* AddExpenseUseCase.swift */; };
 		F667483E2C7099AA004108F9 /* AddExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667483D2C7099AA004108F9 /* AddExpenseRepository.swift */; };
+		F66748402C7123A4004108F9 /* ShowFilterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F66748392C709540004108F9 /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
 		F667483B2C70998E004108F9 /* AddExpenseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseUseCase.swift; sourceTree = "<group>"; };
 		F667483D2C7099AA004108F9 /* AddExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseRepository.swift; sourceTree = "<group>"; };
+		F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFilterScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				F66748332C7094AF004108F9 /* Dashbaord */,
 				F66748352C7094D6004108F9 /* AllTransactions */,
 				F66748342C7094C5004108F9 /* AddExpense */,
+				F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F667480F2C6E336D004108F9 /* BaseModel.swift in Sources */,
+				F66748402C7123A4004108F9 /* ShowFilterScreen.swift in Sources */,
 				F667483C2C70998E004108F9 /* AddExpenseUseCase.swift in Sources */,
 				F66747962C6CAAC8004108F9 /* ContentView.swift in Sources */,
 				F66748132C6E3E62004108F9 /* Expense+Extension.swift in Sources */,

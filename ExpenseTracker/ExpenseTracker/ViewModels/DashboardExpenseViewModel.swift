@@ -13,6 +13,7 @@ class DashboardExpenseViewModel:ObservableObject{
     @Published var categoryExpense:[CategoryExpense] = [CategoryExpense]()
     @Published var selectedInterval: Interval = .monthly
     @Published var recentTransactions: [TotalExpense] = []
+    @Published var filteredTransactions: [TotalExpense] = []
     private let dashboardExpenseUseCase: DashboardExpenseUseCase
     
     init(dashboardExpenseUseCase: DashboardExpenseUseCase) {
@@ -39,5 +40,18 @@ class DashboardExpenseViewModel:ObservableObject{
     }
     func getRecentTransactions(){
         recentTransactions = dashboardExpenseUseCase.getRecentTransactions()
+    }
+    
+    func getFilterTransactions(byStartDate startDate: Date?, endDate: Date?,category:String = "") {
+        if let startDate = startDate, let endDate = endDate {
+            filteredTransactions = recentTransactions.filter { transaction in
+                guard let transactionDate = transaction.date else { return false }
+                return transactionDate >= startDate && transactionDate <= endDate
+            }
+        } else if !category.isEmpty && category != "All"{
+            filteredTransactions = recentTransactions.filter{$0.label == category}
+        } else{
+            filteredTransactions = recentTransactions
+        }
     }
 }

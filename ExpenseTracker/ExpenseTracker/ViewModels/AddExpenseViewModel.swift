@@ -14,7 +14,6 @@ class AddExpenseViewModel:ObservableObject{
     @Published var date = Date()
     @Published var note: String = ""
     @Published var isSaveButtonEnabled: Bool = false
-    //@Published var expenseId:UUID = UUID()
     private var cancellables = Set<AnyCancellable>()
     private let addExpenseUseCase: AddExpenseUseCase
     init(addExpenseUseCase:AddExpenseUseCase){
