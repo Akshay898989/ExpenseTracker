@@ -26,9 +26,10 @@ struct TotalExpenseView:View {
                 .frame(width: 150)
                 .padding()
             }
-            .onChange(of: selectedInterval) { newValue in
+            .onChange(of: selectedInterval, { oldValue, newValue in
                 onIntervalChange(newValue)
-            }
+            })
+    
             TotalExpenseChart(totalExpense: totalExpense)
             
         }

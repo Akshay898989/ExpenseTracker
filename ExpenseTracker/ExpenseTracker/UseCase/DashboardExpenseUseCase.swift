@@ -34,15 +34,6 @@ class DashboardExpenseUseCase {
         return expenses
     }
     
-//    func addExpense(amount: Double, category: String, date: Date, note: String?){
-    func addExpense(){
-        //repository.addExpense(amount: amount, category: category, date: date, note: note)
-        let twoMonthsBackDate = Calendar.current.date(byAdding: .month, value: 0, to: Date())!
-        repository.addExpense(amount: 400, category: "Food22", date: twoMonthsBackDate, note: "spent on food")
-        //repository.addExpense(amount: 4000, category: "Sports", date: twoMonthsBackDate, note: "")
-    }
-    
-    
     func getTotalExpense(for interval: Interval) -> [TotalExpense] {
         var expensesByInterval: [String: Double] = [:]
         let calendar = Calendar.current

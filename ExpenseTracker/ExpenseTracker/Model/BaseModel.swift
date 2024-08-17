@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 protocol BaseModel where Self:NSManagedObject{
-    func save()
+    func save(completion:@escaping(Result<Void,Error>)->Void)
     static func all<T:NSManagedObject>() -> [T]
 }
 
@@ -18,11 +18,13 @@ extension BaseModel{
         return CoreDataManager.shared.viewContext
     }
     
-    func save(){
+    func save(completion:@escaping(Result<Void, Error>)->Void){
         do{
             try Self.viewContext.save()
+            completion(.success(()))
         }catch{
             Self.viewContext.rollback()
+            completion(.failure(error))
         }
     }
     

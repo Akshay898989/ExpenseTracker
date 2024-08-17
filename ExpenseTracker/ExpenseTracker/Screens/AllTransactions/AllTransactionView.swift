@@ -15,7 +15,6 @@ struct AllTransactionsView: View {
             AllTransactionRow(transaction: transaction)
         }
         .navigationTitle("All Transactions")
-        //.padding()
     }
 }
 
@@ -25,18 +24,16 @@ struct AllTransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(transaction.label) // Category name
+                Text(transaction.label)
                     .font(.headline)
                 if let notes = transaction.notes {
-                    Text(notes) // Notes
+                    Text(notes)
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
-                if let date = transaction.date {
-                    Text(transaction.formattedDate) // Formatted date
+                    Text(transaction.formattedDate)
                         .font(.caption)
                         .foregroundColor(.gray)
-                }
             }
             Spacer()
             Text("\(transaction.amount, format: .currency(code: "USD"))") // Amount

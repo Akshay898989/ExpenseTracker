@@ -17,24 +17,22 @@ class DashboardExpenseViewModel:ObservableObject{
     
     init(dashboardExpenseUseCase: DashboardExpenseUseCase) {
         self.dashboardExpenseUseCase = dashboardExpenseUseCase
-       // addExpense()
-        loadData()
+        //loadData()
     }
     
     func loadData() {
         expense = dashboardExpenseUseCase.execute()
+        getTotalExpense()
+        getCategoryExpense()
+        getRecentTransactions()
     }
     
-    func addExpense(){
-        dashboardExpenseUseCase.addExpense()
-    }
     
     func getTotalExpense(){
         totalExpense = dashboardExpenseUseCase.getTotalExpense(for: selectedInterval)
     }
     func getCategoryExpense(){
         categoryExpense = dashboardExpenseUseCase.getCategoryExpense()
-        print("cccc===",categoryExpense)
     }
     func updateInterval(_ interval: Interval) {
         selectedInterval = interval
