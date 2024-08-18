@@ -54,4 +54,8 @@ class DashboardExpenseViewModel:ObservableObject{
             filteredTransactions = recentTransactions
         }
     }
+    
+    func resetFilter(){
+        filteredTransactions = recentTransactions
+    }
 }

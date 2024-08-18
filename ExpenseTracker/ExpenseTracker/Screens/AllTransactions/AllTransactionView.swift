@@ -36,8 +36,13 @@ struct AllTransactionsView: View {
         }
         .navigationTitle("All Transactions")
         .toolbar{
-            Button("Filter"){
-                showFilter = .showFilters
+            HStack{
+                Button("Reset"){
+                    viewModel.resetFilter()
+                }
+                Button("Filter"){
+                    showFilter = .showFilters
+                }
             }
         }
         .sheet(item: $showFilter, onDismiss: {
