@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct ExpenseTrackerApp: App {
-    let dashboardExpenseRepository: ExpenseRepository
+    let dashboardExpenseRepository: DashboardExpenseRepository
     let dashboardExpenseUseCase: DashboardExpenseUseCase
     let addExpenseRepository: AddExpenseRepository
     let addExpenseUseCase: AddExpenseUseCase
     init() {
-        dashboardExpenseRepository = DashboardExpenseRepository()
+        dashboardExpenseRepository = DashboardExpenseRepositoryImpl()
         dashboardExpenseUseCase = DashboardExpenseUseCase(repository: dashboardExpenseRepository)
         addExpenseRepository = AddExpenseRepositoryImpl()
         addExpenseUseCase = AddExpenseUseCase(repository: addExpenseRepository)

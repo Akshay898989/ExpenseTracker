@@ -7,11 +7,11 @@
 
 import Foundation
 // 1. Data Layer
-protocol ExpenseRepository{
+protocol DashboardExpenseRepository{
     func fetchAllExpenses() -> [Expense]
 }
 
-class DashboardExpenseRepository:ExpenseRepository{
+class DashboardExpenseRepositoryImpl:DashboardExpenseRepository{
     
     func fetchAllExpenses() -> [Expense] {
         return Expense.all()

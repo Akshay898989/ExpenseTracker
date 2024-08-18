@@ -81,7 +81,7 @@ struct Dashboard: View {
 
 struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
-        Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: DashboardExpenseUseCase(repository: DashboardExpenseRepository())))
+        Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: DashboardExpenseUseCase(repository: DashboardExpenseRepositoryImpl())))
     }
 }
 

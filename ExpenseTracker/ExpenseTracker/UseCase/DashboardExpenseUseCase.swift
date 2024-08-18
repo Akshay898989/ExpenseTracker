@@ -23,10 +23,9 @@ enum Interval {
 // 2. Domain Layer
 
 class DashboardExpenseUseCase {
-    private let repository: ExpenseRepository
+    private let repository: DashboardExpenseRepository
     private var expenses:[ExpenseData] = []
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    init(repository: ExpenseRepository) {
+    init(repository: DashboardExpenseRepository) {
         self.repository = repository
     }
     

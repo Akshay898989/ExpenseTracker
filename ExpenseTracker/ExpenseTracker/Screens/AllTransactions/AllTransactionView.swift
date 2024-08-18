@@ -25,7 +25,7 @@ struct AllTransactionsView: View {
             NavigationLink(destination:AddExpenseView(didSaveExpense: $didUpdateExpense, expenseToEdit: transaction)){
                 AllTransactionRow(transaction: transaction)
             }
-            .onChange(of: didUpdateExpense) { oldValue, newValue in
+            .onChange(of: didUpdateExpense) { _ in
                 viewModel.getRecentTransactions()
                 didUpdateExpense = false
             }
