@@ -34,10 +34,14 @@ struct CategoryExpenseChart:View {
         VStack(alignment: .leading) {
             HStack{
                 Chart(categoryExpense, id: \.category) { item in
-                    SectorMark(
-                        angle: .value("amount", item.amount)
-                    )
-                    .foregroundStyle(Color.color(for: item.category))
+                    if #available(iOS 17.0, *) {
+                        SectorMark(
+                            angle: .value("amount", item.amount)
+                        )
+                        .foregroundStyle(Color.color(for: item.category))
+                    } else {
+                        //TODO:  Fallback on earlier versions
+                    }
                 }
                 .padding()
                 .frame(height: 250)
