@@ -28,37 +28,58 @@ struct CategoryExpenseView:View {
 
 struct CategoryExpenseChart:View {
     let categoryExpense: [CategoryExpense]
+    
+    
     var body: some View {
-        let totalAmount = categoryExpense.reduce(0) { $0 + $1.amount }
-        VStack(alignment:.leading){
-            Chart(categoryExpense, id: \.category) { item in
-                SectorMark(
-                    angle: .value("amount", item.amount)
-//                    innerRadius: .ratio(0.6),
-//                    angularInset: 2
-                )
-                .foregroundStyle(by: .value("Category", item.category))
-                /*
-                .annotation(position: .overlay) {
-                    Text("\(percentage(for: item.amount, total: totalAmount))")
-                        .font(.caption)
-                        .foregroundColor(.white)
-                        .bold()
-                        .shadow(radius: 5)
+        VStack(alignment: .leading) {
+            HStack{
+                Chart(categoryExpense, id: \.category) { item in
+                    SectorMark(
+                        angle: .value("amount", item.amount)
+                    )
+                    .foregroundStyle(Color.color(for: item.category))
                 }
-                */
+                .padding()
+                .frame(height: 250)
+                .background(Color.clear)
+                
+                LegendView(categoryExpense: categoryExpense)
+                    .padding()
             }
-            .chartLegend(alignment: .center, spacing: 16)
-            .padding()
-            .frame(height: 250)
-            .background(Color.white)
-            .shadow(radius: 5)
         }
+        .background(Color.white)
+        .shadow(radius: 5)
     }
+}
+
+struct LegendView: View {
+    let categoryExpense: [CategoryExpense]
     
     private func percentage(for amount: Double, total: Double) -> String {
-            guard total > 0 else { return "0" }
-            let percentage = (amount / total) * 100
-            return String(format: "%.1f", percentage)
+        guard total > 0 else { return "0" }
+        let percentage = (amount / total) * 100
+        return String(format: "%.1f", percentage)
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ForEach(categoryExpense, id: \.category) { item in
+                HStack {
+                    Circle()
+                        .fill(Color.color(for: item.category))
+                        .frame(width: 10, height: 10)
+                        .shadow(radius: 1)
+                    Text("\(item.category): \(percentage(for: item.amount, total: totalAmount))")
+                        .fixedSize(horizontal: true, vertical: false)
+                        .font(.caption)
+                        .foregroundStyle(.black)
+                }
+            }
         }
+        .padding()
+    }
+    
+    private var totalAmount: Double {
+        return categoryExpense.reduce(0) { $0 + $1.amount }
+    }
 }
