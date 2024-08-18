@@ -39,6 +39,7 @@
 		F66748482C7239E2004108F9 /* ExpenseSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748472C7239E2004108F9 /* ExpenseSummaryViewModel.swift */; };
 		F667484A2C723A07004108F9 /* ExpenseSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748492C723A07004108F9 /* ExpenseSummaryView.swift */; };
 		F6827E442C727148003F4187 /* ExpenseSummaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6827E432C727148003F4187 /* ExpenseSummaryUseCase.swift */; };
+		F6827E462C729698003F4187 /* DashboardCSVExporterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6827E452C729698003F4187 /* DashboardCSVExporterUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		F66748472C7239E2004108F9 /* ExpenseSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryViewModel.swift; sourceTree = "<group>"; };
 		F66748492C723A07004108F9 /* ExpenseSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryView.swift; sourceTree = "<group>"; };
 		F6827E432C727148003F4187 /* ExpenseSummaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryUseCase.swift; sourceTree = "<group>"; };
+		F6827E452C729698003F4187 /* DashboardCSVExporterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCSVExporterUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				F66748142C6E3EF5004108F9 /* DashboardExpenseUseCase.swift */,
+				F6827E452C729698003F4187 /* DashboardCSVExporterUseCase.swift */,
 				F667483B2C70998E004108F9 /* AddExpenseUseCase.swift */,
 				F6827E432C727148003F4187 /* ExpenseSummaryUseCase.swift */,
 			);
@@ -431,6 +434,7 @@
 				F66747962C6CAAC8004108F9 /* ContentView.swift in Sources */,
 				F66748132C6E3E62004108F9 /* Expense+Extension.swift in Sources */,
 				F667482A2C6FA2DE004108F9 /* CategoryExpense.swift in Sources */,
+				F6827E462C729698003F4187 /* DashboardCSVExporterUseCase.swift in Sources */,
 				F66748282C6FA2CC004108F9 /* TotalExpense.swift in Sources */,
 				F667483A2C709540004108F9 /* AddExpenseViewModel.swift in Sources */,
 				F66748062C6E3100004108F9 /* Dashboard.swift in Sources */,
@@ -622,7 +626,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -651,7 +655,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

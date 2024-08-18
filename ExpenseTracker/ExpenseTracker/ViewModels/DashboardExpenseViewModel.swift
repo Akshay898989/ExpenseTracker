@@ -15,9 +15,10 @@ class DashboardExpenseViewModel:ObservableObject{
     @Published var recentTransactions: [TotalExpense] = []
     @Published var filteredTransactions: [TotalExpense] = []
     private let dashboardExpenseUseCase: DashboardExpenseUseCase
-    
-    init(dashboardExpenseUseCase: DashboardExpenseUseCase) {
+    private let dashboardCSVExporterUseCase:DashboardCSVExporterUseCase
+    init(dashboardExpenseUseCase: DashboardExpenseUseCase,dashboardCSVExporterUseCase:DashboardCSVExporterUseCase) {
         self.dashboardExpenseUseCase = dashboardExpenseUseCase
+        self.dashboardCSVExporterUseCase = dashboardCSVExporterUseCase
     }
     
     func loadData() {
@@ -57,5 +58,9 @@ class DashboardExpenseViewModel:ObservableObject{
     
     func resetFilter(){
         filteredTransactions = recentTransactions
+    }
+    
+    func exportDataToCSV()->URL?{
+        return dashboardCSVExporterUseCase.exportDataToCSV(expenses: recentTransactions)
     }
 }

@@ -11,12 +11,14 @@ import SwiftUI
 struct ExpenseTrackerApp: App {
     let dashboardExpenseRepository: DashboardExpenseRepository
     let dashboardExpenseUseCase: DashboardExpenseUseCase
+    let dashboardCSVExporteUseCase: DashboardCSVExporterUseCase
     let addExpenseRepository: AddExpenseRepository
     let addExpenseUseCase: AddExpenseUseCase
     let expenseSummaryUseCase: ExpenseSummaryUseCase
     init() {
         dashboardExpenseRepository = DashboardExpenseRepositoryImpl()
         dashboardExpenseUseCase = DashboardExpenseUseCase(repository: dashboardExpenseRepository)
+        dashboardCSVExporteUseCase = DashboardCSVExporterUseCase()
         addExpenseRepository = AddExpenseRepositoryImpl()
         addExpenseUseCase = AddExpenseUseCase(repository: addExpenseRepository)
         expenseSummaryUseCase = ExpenseSummaryUseCase()
@@ -24,7 +26,7 @@ struct ExpenseTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: dashboardExpenseUseCase))
+            Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: dashboardExpenseUseCase, dashboardCSVExporterUseCase: dashboardCSVExporteUseCase))
                 .environmentObject(AddExpenseViewModel(addExpenseUseCase: addExpenseUseCase))
                 .environmentObject(ExpenseSummaryViewModel(expenseSummaryUseCase: expenseSummaryUseCase, expenses: []))
         }

@@ -43,6 +43,19 @@ struct Dashboard: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
                     }
+                    .navigationBarItems(trailing: Button(action: {
+                        if let tempFileURL = viewModel.exportDataToCSV(){
+                            let documentPicker = UIDocumentPickerViewController(forExporting: [tempFileURL])
+                            documentPicker.modalPresentationStyle = .formSheet
+                            
+                            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                               let rootViewController = windowScene.windows.first?.rootViewController {
+                                rootViewController.present(documentPicker, animated: true)
+                            }
+                        }
+                    }) {
+                        Label("Export to CSV", systemImage: "square.and.arrow.up")
+                    })
                     .navigationTitle("Expense Tracker")
                     .onChange(of: didSaveExpense) { _ in
                         viewModel.loadData()  // Reload data when returning from AddExpenseView
@@ -81,7 +94,7 @@ struct Dashboard: View {
 
 struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
-        Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: DashboardExpenseUseCase(repository: DashboardExpenseRepositoryImpl())))
+        Dashboard(viewModel: DashboardExpenseViewModel(dashboardExpenseUseCase: DashboardExpenseUseCase(repository: DashboardExpenseRepositoryImpl()), dashboardCSVExporterUseCase: DashboardCSVExporterUseCase()))
     }
 }
 
