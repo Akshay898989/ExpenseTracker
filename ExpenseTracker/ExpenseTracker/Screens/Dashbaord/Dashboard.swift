@@ -21,15 +21,28 @@ struct Dashboard: View {
             ZStack{
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        TotalExpenseView(selectedInterval: $viewModel.selectedInterval, totalExpense: viewModel.totalExpense) { newInterval in
-                            viewModel.updateInterval(newInterval)
+                        if viewModel.recentTransactions.count>0{
+                            TotalExpenseView(selectedInterval: $viewModel.selectedInterval, totalExpense: viewModel.totalExpense) { newInterval in
+                                viewModel.updateInterval(newInterval)
+                            }
+                            
+                            CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
+                            if viewModel.recentTransactions.count>1{
+                                ExpensesOverTimeView(expensesOverTime: viewModel.recentTransactions)
+                            }
+                            RecentTransactionsView()
+                                .environmentObject(viewModel)
+                                .padding(10)
+                        }else{
+                            VStack {
+                                Spacer()
+                                Text("No Data Present")
+                                    .font(.headline)
+                                    .foregroundColor(.gray)
+                                Spacer()
+                            }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
-                        
-                        CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
-                        ExpensesOverTimeView(expensesOverTime: viewModel.recentTransactions)
-                        RecentTransactionsView()
-                            .environmentObject(viewModel)
-                            .padding(10)
                     }
                     .navigationTitle("Expense Tracker")
                     .onChange(of: didSaveExpense) { _ in

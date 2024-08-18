@@ -14,7 +14,7 @@ enum Interval {
     var dateFormat: String {
         switch self {
         case .monthly:
-            return "MMMM"
+            return "MMM"
         case .yearly:
             return "yyyy"
         }
@@ -25,6 +25,7 @@ enum Interval {
 class DashboardExpenseUseCase {
     private let repository: ExpenseRepository
     private var expenses:[ExpenseData] = []
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     init(repository: ExpenseRepository) {
         self.repository = repository
     }
@@ -56,8 +57,16 @@ class DashboardExpenseUseCase {
             expensesByInterval[key, default: 0] += expense.amount
         }
         
-        return expensesByInterval.map { TotalExpense(label: $0.key, amount: $0.value) }
+        // Sort the keys
+        let sortedKeys = expensesByInterval.keys.sorted { key1, key2 in
+            dateFormatter.date(from: key1)! < dateFormatter.date(from: key2)!
+        }
+        
+        return sortedKeys.map { key in
+            TotalExpense(label: key, amount: expensesByInterval[key]!)
+        }
     }
+
     
     func getCategoryExpense()->[CategoryExpense] {
         let categoryDict = Dictionary(grouping: expenses, by: { $0.category })

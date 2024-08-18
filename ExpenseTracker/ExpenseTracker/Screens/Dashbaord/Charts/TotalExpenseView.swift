@@ -50,11 +50,13 @@ struct TotalExpenseChart:View{
                         x: .value("Label", expense.label),
                         y: .value("Amount", expense.amount)
                     )
+                    /*
                     .annotation(position: .top){
                         Text("\(expense.amount, format: .number.precision(.fractionLength(2)))")
                             .frame(minWidth: 2)
                             .font(.caption2)
                     }
+                    */
                     .foregroundStyle(LinearGradient(
                         gradient: Gradient(colors: [.blue, .purple]),
                         startPoint: .bottom,
