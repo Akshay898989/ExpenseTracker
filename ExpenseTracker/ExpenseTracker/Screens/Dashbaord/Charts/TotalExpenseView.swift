@@ -33,7 +33,7 @@ struct TotalExpenseView:View {
             TotalExpenseChart(totalExpense: totalExpense)
             
         }
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .padding()
         .shadow(radius: 5)
     }

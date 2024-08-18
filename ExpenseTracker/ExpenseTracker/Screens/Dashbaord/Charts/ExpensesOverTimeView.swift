@@ -22,7 +22,7 @@ struct ExpensesOverTimeView: View {
         VStack {
             ExpensesOverTimeChart(expensesOverTime: expensesOverTime)
         }
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .padding()
         .shadow(radius: 5)
         

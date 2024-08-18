@@ -13,6 +13,7 @@ struct RecentTransactionsView: View {
         VStack(alignment:.leading){
             HStack {
                 Text("Recent Transactions")
+                    .foregroundColor(Color(UIColor.label))
                     .font(.headline)
                 Spacer()
                 NavigationLink(destination: AllTransactionsView()
@@ -33,7 +34,7 @@ struct RecentTransactionsView: View {
             
         }
         .padding(10)
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(10)
         .shadow(radius: 5)
     }
@@ -45,25 +46,27 @@ struct TransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(transaction.category) // Category name
+                Text(transaction.category)
+                    .foregroundColor(Color(UIColor.label))
                     .font(.headline)
                 if let notes = transaction.notes {
                     Text(notes) // Notes
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color(UIColor.secondaryLabel))
                 }
                 if let date = transaction.date {
                     Text(transaction.formattedDate)
                         .font(.caption)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color(UIColor.secondaryLabel))
                 }
             }
             Spacer()
             Text("\(transaction.amount, format: .currency(code: "USD"))") // Amount
                 .font(.headline)
+                .foregroundColor(Color(UIColor.label))
         }
         .padding(.horizontal,10)
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(5)
     }
 }

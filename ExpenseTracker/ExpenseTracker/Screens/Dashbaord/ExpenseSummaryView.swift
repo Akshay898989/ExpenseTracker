@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ExpenseSummary: View {
     @StateObject var viewModel: ExpenseSummaryViewModel
     init(expenseSummaryUseCase: ExpenseSummaryUseCase, expense:[ExpenseData]) {
@@ -38,7 +36,7 @@ struct ExpenseSummary: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Grouped Categories")
-        
+        .background(Color(UIColor.systemBackground))
     }
     
     private func sectionHeader(for section: ExpenseSummaryCategorySection) -> some View {
@@ -48,16 +46,16 @@ struct ExpenseSummary: View {
             HStack {
                 Text(section.category)
                     .font(.headline)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(UIColor.label))
                 Spacer()
                 Text("Total: $\(section.totalAmount, specifier: "%.2f")")
                     .bold()
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(UIColor.label))
                 Image(systemName: section.isExpanded ? "chevron.up" : "chevron.down")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(UIColor.label))
             }
             .padding(0)
-            .cornerRadius(10)
+            .background(Color(UIColor.secondarySystemBackground))
         }
     }
 }

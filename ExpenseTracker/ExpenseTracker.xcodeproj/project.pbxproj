@@ -191,7 +191,6 @@
 				F66748332C7094AF004108F9 /* Dashbaord */,
 				F66748352C7094D6004108F9 /* AllTransactions */,
 				F66748342C7094C5004108F9 /* AddExpense */,
-				F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -256,6 +255,7 @@
 		F66748352C7094D6004108F9 /* AllTransactions */ = {
 			isa = PBXGroup;
 			children = (
+				F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */,
 				F667482D2C6FD1C5004108F9 /* AllTransactionView.swift */,
 			);
 			path = AllTransactions;

@@ -16,7 +16,7 @@ struct CategoryExpenseView:View {
             VStack(alignment:.leading){
                 Text("Category Expense")
                     .font(.headline)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(UIColor.label))
                     .padding(.top, 20)
                     .padding(.leading, 10)
                 CategoryExpenseChart(categoryExpense: categoryExpense)
@@ -47,7 +47,7 @@ struct CategoryExpenseChart:View {
                     .padding()
             }
         }
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .shadow(radius: 5)
     }
 }
@@ -72,7 +72,7 @@ struct LegendView: View {
                     Text("\(item.category): \(percentage(for: item.amount, total: totalAmount))")
                         .fixedSize(horizontal: true, vertical: false)
                         .font(.caption)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(Color(UIColor.label))
                 }
             }
         }
