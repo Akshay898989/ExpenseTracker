@@ -9,11 +9,11 @@ import Foundation
 
 class ExpenseSummaryViewModel: ObservableObject {
     @Published var sections: [ExpenseSummaryCategorySection] = []
-    
-    init(expenses: [ExpenseData]) {
-        let grouped = Dictionary(grouping: expenses) { $0.category }
-        self.sections = grouped.map { ExpenseSummaryCategorySection(category: $0.key, expenses: $0.value) }
-    }
+    let expenseSummaryUseCase: ExpenseSummaryUseCase
+    init(expenseSummaryUseCase: ExpenseSummaryUseCase, expenses: [ExpenseData]) {
+            self.expenseSummaryUseCase = expenseSummaryUseCase
+            self.sections = expenseSummaryUseCase.summarizeExpenses(expenses)
+        }
     
     func toggleSection(_ section: ExpenseSummaryCategorySection) {
         if let index = sections.firstIndex(where: { $0.id == section.id }) {

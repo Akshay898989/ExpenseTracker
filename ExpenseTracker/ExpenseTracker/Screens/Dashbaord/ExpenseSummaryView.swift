@@ -10,8 +10,10 @@ import SwiftUI
 import SwiftUI
 
 struct ExpenseSummary: View {
-    @ObservedObject var viewModel: ExpenseSummaryViewModel
-    
+    @StateObject var viewModel: ExpenseSummaryViewModel
+    init(expenseSummaryUseCase: ExpenseSummaryUseCase, expense:[ExpenseData]) {
+        _viewModel = StateObject(wrappedValue: ExpenseSummaryViewModel(expenseSummaryUseCase: expenseSummaryUseCase, expenses: expense))
+    }
     var body: some View {
         VStack{
             List {

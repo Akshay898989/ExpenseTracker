@@ -8,10 +8,11 @@
 import SwiftUI
 import Charts
 struct CategoryExpenseView:View {
+    @EnvironmentObject var viewModel: ExpenseSummaryViewModel
     let categoryExpense: [CategoryExpense]
     let expense:[ExpenseData]
     var body: some View {
-        NavigationLink(destination: ExpenseSummary(viewModel: ExpenseSummaryViewModel(expenses: expense))) {
+        NavigationLink(destination: ExpenseSummary(expenseSummaryUseCase: viewModel.expenseSummaryUseCase, expense: expense)) {
             VStack(alignment:.leading){
                 Text("Category Expense")
                     .font(.headline)
