@@ -25,8 +25,7 @@ struct Dashboard: View {
                             TotalExpenseView(selectedInterval: $viewModel.selectedInterval, totalExpense: viewModel.totalExpense) { newInterval in
                                 viewModel.updateInterval(newInterval)
                             }
-                            
-                            CategoryExpenseView(categoryExpense: viewModel.categoryExpense)
+                            CategoryExpenseView(categoryExpense: viewModel.categoryExpense,expense:viewModel.expense)
                             if viewModel.recentTransactions.count>1{
                                 ExpensesOverTimeView(expensesOverTime: viewModel.recentTransactions)
                             }

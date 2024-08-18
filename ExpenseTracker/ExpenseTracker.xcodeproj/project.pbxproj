@@ -35,6 +35,9 @@
 		F667483C2C70998E004108F9 /* AddExpenseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667483B2C70998E004108F9 /* AddExpenseUseCase.swift */; };
 		F667483E2C7099AA004108F9 /* AddExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667483D2C7099AA004108F9 /* AddExpenseRepository.swift */; };
 		F66748402C7123A4004108F9 /* ShowFilterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */; };
+		F66748462C7239C7004108F9 /* ExpenseSummaryCategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748452C7239C7004108F9 /* ExpenseSummaryCategorySection.swift */; };
+		F66748482C7239E2004108F9 /* ExpenseSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748472C7239E2004108F9 /* ExpenseSummaryViewModel.swift */; };
+		F667484A2C723A07004108F9 /* ExpenseSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66748492C723A07004108F9 /* ExpenseSummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		F667483B2C70998E004108F9 /* AddExpenseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseUseCase.swift; sourceTree = "<group>"; };
 		F667483D2C7099AA004108F9 /* AddExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseRepository.swift; sourceTree = "<group>"; };
 		F667483F2C7123A4004108F9 /* ShowFilterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFilterScreen.swift; sourceTree = "<group>"; };
+		F66748452C7239C7004108F9 /* ExpenseSummaryCategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryCategorySection.swift; sourceTree = "<group>"; };
+		F66748472C7239E2004108F9 /* ExpenseSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryViewModel.swift; sourceTree = "<group>"; };
+		F66748492C723A07004108F9 /* ExpenseSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +227,7 @@
 				F66748252C6FA2B6004108F9 /* ExpenseData.swift */,
 				F66748272C6FA2CC004108F9 /* TotalExpense.swift */,
 				F66748292C6FA2DE004108F9 /* CategoryExpense.swift */,
+				F66748452C7239C7004108F9 /* ExpenseSummaryCategorySection.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -230,6 +237,7 @@
 			children = (
 				F66748052C6E3100004108F9 /* Dashboard.swift */,
 				F667482B2C6FB499004108F9 /* RecentTransactionsView.swift */,
+				F66748492C723A07004108F9 /* ExpenseSummaryView.swift */,
 				F667481F2C6FA1C6004108F9 /* Charts */,
 			);
 			path = Dashbaord;
@@ -256,6 +264,7 @@
 			children = (
 				F66748162C6E3F3F004108F9 /* DashboardExpenseViewModel.swift */,
 				F66748392C709540004108F9 /* AddExpenseViewModel.swift */,
+				F66748472C7239E2004108F9 /* ExpenseSummaryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -425,6 +434,7 @@
 				F66748302C6FDDE7004108F9 /* AddExpenseView.swift in Sources */,
 				F667482E2C6FD1C5004108F9 /* AllTransactionView.swift in Sources */,
 				F66748172C6E3F3F004108F9 /* DashboardExpenseViewModel.swift in Sources */,
+				F667484A2C723A07004108F9 /* ExpenseSummaryView.swift in Sources */,
 				F66748232C6FA201004108F9 /* CategoryExpenseView.swift in Sources */,
 				F667483E2C7099AA004108F9 /* AddExpenseRepository.swift in Sources */,
 				F66748092C6E318B004108F9 /* CoreDataManager.swift in Sources */,
@@ -432,10 +442,12 @@
 				F66748152C6E3EF5004108F9 /* DashboardExpenseUseCase.swift in Sources */,
 				F667480D2C6E3283004108F9 /* ExpenseTracker.xcdatamodeld in Sources */,
 				F66747942C6CAAC8004108F9 /* ExpenseTrackerApp.swift in Sources */,
+				F66748482C7239E2004108F9 /* ExpenseSummaryViewModel.swift in Sources */,
 				F667482C2C6FB499004108F9 /* RecentTransactionsView.swift in Sources */,
 				F66748112C6E3A59004108F9 /* DashboardExpenseRepository.swift in Sources */,
 				F66748212C6FA1DA004108F9 /* TotalExpenseView.swift in Sources */,
 				F66748262C6FA2B6004108F9 /* ExpenseData.swift in Sources */,
+				F66748462C7239C7004108F9 /* ExpenseSummaryCategorySection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,15 +9,19 @@ import SwiftUI
 import Charts
 struct CategoryExpenseView:View {
     let categoryExpense: [CategoryExpense]
+    let expense:[ExpenseData]
     var body: some View {
-        Text("Category Expense")
-            .font(.headline)
-            .padding(.top,20)
-            .padding(.leading,10)
-        VStack{
-            CategoryExpenseChart(categoryExpense: categoryExpense)
+        NavigationLink(destination: ExpenseSummary(viewModel: ExpenseSummaryViewModel(expenses: expense))) {
+            VStack(alignment:.leading){
+                Text("Category Expense")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                    .padding(.top, 20)
+                    .padding(.leading, 10)
+                CategoryExpenseChart(categoryExpense: categoryExpense)
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
@@ -33,6 +37,7 @@ struct CategoryExpenseChart:View {
 //                    angularInset: 2
                 )
                 .foregroundStyle(by: .value("Category", item.category))
+                /*
                 .annotation(position: .overlay) {
                     Text("\(percentage(for: item.amount, total: totalAmount))")
                         .font(.caption)
@@ -40,6 +45,7 @@ struct CategoryExpenseChart:View {
                         .bold()
                         .shadow(radius: 5)
                 }
+                */
             }
             .chartLegend(alignment: .center, spacing: 16)
             .padding()
