@@ -63,7 +63,7 @@ class DashboardExpenseUseCase {
         }
         
         return sortedKeys.map { key in
-            TotalExpense(label: key, amount: expensesByInterval[key]!)
+            TotalExpense(category: key, amount: expensesByInterval[key]!)
         }
     }
 
@@ -79,7 +79,7 @@ class DashboardExpenseUseCase {
         let latestTransactions = sortedExpenses.map { expense in
             TotalExpense(
                 id: expense.id,
-                label: expense.category,
+                category: expense.category,
                 amount: expense.amount,
                 notes: expense.note,
                 date: expense.date

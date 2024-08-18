@@ -33,7 +33,7 @@ struct AddExpenseView: View {
                 .onAppear {
                     if let expense = expenseToEdit {
                         viewModel.amount = "\(expense.amount)"
-                        viewModel.category = expense.label
+                        viewModel.category = expense.category
                         viewModel.date = expense.date!
                         viewModel.note = expense.notes ?? ""
                         viewModel.isSaveButtonEnabled = true

@@ -49,7 +49,7 @@ class DashboardExpenseViewModel:ObservableObject{
                 return transactionDate >= startDate && transactionDate <= endDate
             }
         } else if !category.isEmpty && category != "All"{
-            filteredTransactions = recentTransactions.filter{$0.label == category}
+            filteredTransactions = recentTransactions.filter{$0.category == category}
         } else{
             filteredTransactions = recentTransactions
         }

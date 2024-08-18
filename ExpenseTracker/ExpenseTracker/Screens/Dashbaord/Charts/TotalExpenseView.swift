@@ -47,7 +47,7 @@ struct TotalExpenseChart:View{
             Chart {
                 ForEach(totalExpense) { expense in
                     BarMark(
-                        x: .value("Label", expense.label),
+                        x: .value("Label", expense.category),
                         y: .value("Amount", expense.amount)
                     )
                     /*

@@ -58,7 +58,7 @@ struct ExpensesOverTimeChart:View {
     }
 }
 
-
+/*
 struct ExpensesOverTimeView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleTransactions = [
@@ -72,3 +72,4 @@ struct ExpensesOverTimeView_Previews: PreviewProvider {
     }
 }
 
+*/

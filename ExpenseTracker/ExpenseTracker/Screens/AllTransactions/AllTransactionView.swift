@@ -57,7 +57,7 @@ struct AllTransactionRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(transaction.label)
+                Text(transaction.category)
                     .font(.headline)
                 if let notes = transaction.notes {
                     Text(notes)
