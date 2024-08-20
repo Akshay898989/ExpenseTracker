@@ -801,7 +801,7 @@
 			);
 			currentVersion = F667480C2C6E3283004108F9 /* ExpenseTracker.xcdatamodel */;
 			name = ExpenseTracker.xcdatamodeld;
-			path = /Users/akshaygupta/ExpenseTracker/ExpenseTracker/ExpenseTracker/ExpenseTracker.xcdatamodeld;
+			path = ExpenseTracker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
